@@ -1,0 +1,395 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="AMZO Media Production – إنتاج إعلامي وصناعة محتوى بصري في الرياض: فيديوهات ترويجية، تغطية فعاليات، تصوير احترافي، أفلام وثائقية.">
+<meta property="og:title" content="AMZO Production">
+<meta property="og:description" content="ملف أعمال AMZO Media Production – لكل فكرة قصة تستحق أن تُروى.">
+<meta property="og:image" content="og.jpg">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#070605">
+<link rel="icon" href="favicon.png">
+<title>AMZO Production</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alexandria:wght@300;500;700&family=IBM+Plex+Sans+Arabic:wght@300;400;500&display=swap">
+<style>
+/* Layout: cinematic dark set, one amber key light from the top corner, RTL editorial sections */
+:root{
+  --bg:#070605; --surface:#12100d; --line:#2a231b;
+  --fg:#f3ece3; --muted:#a8998a; --accent:#e8832a; --accent-deep:#8a3f0c;
+  --display:"Alexandria","IBM Plex Sans Arabic",system-ui,sans-serif;
+  --body:"IBM Plex Sans Arabic","Segoe UI",Tahoma,system-ui,sans-serif;
+  --gutter-l:max(16px, env(safe-area-inset-left, 0px));
+  --gutter-r:max(16px, env(safe-area-inset-right, 0px));
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:17px;line-height:1.8;direction:rtl}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:30;background:var(--bg)}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.wrap{max-width:1180px;margin-inline:auto;padding-left:var(--gutter-l);padding-right:var(--gutter-r)}
+h1,h2,h3{font-family:var(--display);font-weight:500;text-wrap:balance;margin:0;line-height:1.3}
+p{margin:0}
+
+/* nav */
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:color-mix(in srgb,var(--bg) 82%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:12px}
+.nav img{height:30px;width:auto;display:block}
+.nav ul{display:flex;gap:22px;list-style:none;margin:0;padding:0;font-size:15px}
+.nav ul a{text-decoration:none;color:var(--muted)}
+.nav ul a:hover{color:var(--fg)}
+@media (max-width:760px){.nav ul{display:none}}
+.btn{display:inline-flex;align-items:center;gap:10px;font-family:var(--display);font-size:15px;font-weight:500;padding:11px 20px;border-radius:999px;border:1px solid var(--accent);background:var(--accent);color:#1a0d02;text-decoration:none;cursor:pointer}
+.btn:hover{background:#f39a48}
+.btn.ghost{background:transparent;color:var(--fg);border-color:#4a3c2e}
+.btn.ghost:hover{border-color:var(--accent)}
+.btn.sm{padding:8px 16px;font-size:14px}
+
+/* hero */
+.hero{position:relative;overflow:hidden;border-bottom:1px solid var(--line)}
+.hero-img{position:absolute;inset:0;background:url("hero.jpg") left center/cover no-repeat}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(270deg,var(--bg) 30%,color-mix(in srgb,var(--bg) 55%,transparent) 62%,transparent),radial-gradient(70% 90% at 100% 0%,color-mix(in srgb,var(--accent-deep) 55%,transparent),transparent 60%)}
+.hero .wrap{position:relative;z-index:1;padding-block:clamp(72px,12vw,150px)}
+.hero-copy{max-width:560px}
+.eyebrow{font-family:var(--display);font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);direction:ltr;text-align:right;display:block;margin-bottom:18px}
+.hero h1{font-size:clamp(38px,6vw,68px);font-weight:700;line-height:1.2}
+.hero h1 em{font-style:normal;color:var(--accent)}
+.hero p{color:#d6cabd;margin-top:20px;font-size:18px;max-width:46ch}
+.hero .actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+
+/* sections */
+section{padding-block:clamp(64px,9vw,110px)}
+.sec-head{display:flex;align-items:end;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-bottom:40px}
+.sec-head h2{font-size:clamp(28px,4vw,42px)}
+.sec-head h2::after{content:"..";color:var(--accent)}
+.sec-head p{color:var(--muted);max-width:52ch}
+
+.about{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(28px,5vw,72px);align-items:center}
+.about>*{min-width:0}
+.about .lead{font-size:clamp(19px,2vw,23px);line-height:1.9;font-weight:300}
+.about .lead b{font-weight:500;color:var(--accent);font-family:var(--display);direction:ltr;unicode-bidi:isolate}
+.about figure{margin:0;border-radius:18px;overflow:hidden;aspect-ratio:4/3.4;max-width:100%;background:url("cam.jpg") 30% center/cover}
+@media (max-width:820px){.about{grid-template-columns:1fr}}
+
+.values{display:grid;grid-template-columns:repeat(5,1fr);border-top:1px solid var(--line)}
+.values div{padding:24px 0 0 22px;border-left:1px solid var(--line);min-width:0}
+.values div:last-child{border-left:0}
+.values div+div{padding-right:22px}
+.values h3{font-size:20px;color:var(--accent);margin-bottom:8px}
+.values p{color:var(--muted);font-size:15px;line-height:1.75}
+@media (max-width:900px){.values{grid-template-columns:1fr 1fr}.values div,.values div+div{border-left:0;padding:22px 0;border-bottom:1px solid var(--line)}.values div:nth-child(odd){padding-left:20px}}
+@media (max-width:520px){.values{grid-template-columns:1fr}.values div:nth-child(odd){padding-left:0}}
+
+.band{background:var(--surface);border-block:1px solid var(--line)}
+.services{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:16px;overflow:hidden}
+.services article{background:var(--surface);padding:26px 24px;min-width:0;transition:background .2s}
+.services article:hover{background:#1a1611}
+.services .k{font-family:var(--display);font-size:13px;color:var(--accent);direction:ltr;text-align:right;display:block;letter-spacing:.06em}
+.services h3{font-size:19px;margin:10px 0 8px}
+.services p{color:var(--muted);font-size:15px;line-height:1.75}
+.services article.cta{background:linear-gradient(160deg,#2a160a,var(--surface));display:flex;flex-direction:column;justify-content:space-between;gap:16px}
+
+.exp{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(28px,5vw,72px);align-items:stretch}
+.exp>*{min-width:0}
+.exp figure{margin:0;border-radius:18px;background:url("chair.jpg") center/cover;min-height:340px}
+.exp ol{list-style:none;margin:0;padding:0;display:grid;gap:26px}
+.exp li{display:grid;grid-template-columns:auto 1fr;gap:16px;align-items:start}
+.exp .tag{font-family:var(--display);font-size:13px;background:var(--accent);color:#1a0d02;padding:3px 10px;border-radius:6px;margin-top:6px;white-space:nowrap}
+.exp li p{font-size:18px;line-height:1.85}
+@media (max-width:820px){.exp{grid-template-columns:1fr}.exp figure{min-height:240px}}
+
+.gear{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.gear article{border:1px solid var(--line);border-radius:16px;padding:22px;background:linear-gradient(180deg,#14110d,var(--bg));min-width:0}
+.gear h3{font-size:18px}
+.gear p{color:var(--muted);font-size:14.5px;margin-top:6px;line-height:1.7}
+.gear ul{list-style:none;margin:16px 0 0;padding:14px 0 0;border-top:1px dashed var(--line);display:flex;flex-wrap:wrap;gap:6px;direction:ltr;justify-content:flex-end}
+.gear li{font-size:12.5px;font-family:var(--display);font-weight:300;padding:3px 10px;border-radius:999px;background:#1d1812;color:#d9cbbb}
+@media (max-width:900px){.gear{grid-template-columns:1fr 1fr}}
+@media (max-width:600px){.gear{grid-template-columns:1fr}}
+
+.works{display:grid;grid-template-columns:repeat(3,1fr);gap:22px 18px}
+.work{text-decoration:none;display:flex;flex-direction:column;gap:12px;min-width:0}
+.work .thumb{position:relative;border-radius:14px;overflow:hidden;aspect-ratio:960/527;max-width:100%;background:#16120e}
+.work img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s}
+.work:hover img{transform:scale(1.04)}
+.work .no{position:absolute;top:10px;right:10px;font-family:var(--display);font-size:12px;background:rgba(0,0,0,.6);padding:2px 9px;border-radius:999px;font-variant-numeric:tabular-nums}
+.work h3{font-size:16.5px;font-weight:500;line-height:1.5}
+.work span.watch{font-size:13px;color:var(--accent);font-family:var(--display)}
+.work.feature{grid-column:span 3;display:grid;grid-template-columns:1.4fr 1fr;align-items:center;gap:28px}
+.work.feature h3{font-size:clamp(22px,3vw,32px)}
+.work.feature p{color:var(--muted);margin-top:8px}
+@media (max-width:900px){.works{grid-template-columns:1fr 1fr}.work.feature{grid-column:span 2}}
+@media (max-width:560px){.works{grid-template-columns:1fr}.work.feature{grid-column:auto;grid-template-columns:1fr;gap:14px}}
+
+.contact{position:relative;overflow:hidden}
+.contact-bg{position:absolute;inset:0;background:url("end.jpg") left bottom/cover no-repeat;opacity:.55}
+.contact::after{content:"";position:absolute;inset:0;background:linear-gradient(270deg,var(--bg) 35%,transparent)}
+.contact .wrap{position:relative;z-index:1}
+.contact h2{font-size:clamp(34px,5vw,56px);font-weight:700}
+.contact h2 em{font-style:normal;color:var(--accent)}
+.cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;max-width:620px;margin-top:32px}
+.card{display:flex;align-items:center;justify-content:space-between;gap:12px;border:1px solid var(--line);background:color-mix(in srgb,var(--surface) 88%,transparent);border-radius:14px;padding:14px 16px;min-width:0}
+.card small{display:block;color:var(--muted);font-size:13px}
+.card strong{font-family:var(--display);font-weight:500;direction:ltr;unicode-bidi:isolate;display:block;overflow-wrap:anywhere;user-select:all}
+.card button,.card a.go{flex:none;font:inherit;font-size:13px;background:transparent;color:var(--accent);border:1px solid #4a3c2e;border-radius:999px;padding:5px 12px;cursor:pointer;text-decoration:none}
+@media (max-width:560px){.cards{grid-template-columns:1fr}}
+
+.shots{position:relative;display:block;border-radius:16px;overflow:hidden;border:1px solid var(--line)}
+.shots img{display:block;width:100%;height:auto;transition:transform .6s}
+.shots:hover img{transform:scale(1.02)}
+.shots .btn{position:absolute;bottom:16px;left:16px}
+.logos{display:block;width:100%;max-width:980px;height:auto;margin-inline:auto}
+footer{border-top:1px solid var(--line);color:var(--muted);font-size:14px}
+footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;padding-block:24px}
+
+/* slide viewer */
+.viewer{position:fixed;inset:0;z-index:50;background:rgba(4,3,2,.96);display:flex;flex-direction:column;padding:calc(env(safe-area-inset-top,0px) + 12px) max(16px,env(safe-area-inset-right,0px)) calc(env(safe-area-inset-bottom,0px) + 12px) max(16px,env(safe-area-inset-left,0px))}
+.viewer header{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.viewer .count{font-family:var(--display);font-variant-numeric:tabular-nums;color:var(--muted);direction:ltr}
+.viewer .stage{flex:1;display:flex;align-items:center;justify-content:center;min-height:0;padding-block:12px}
+.viewer .stage img{max-width:100%;max-height:100%;border-radius:10px;box-shadow:0 20px 60px rgba(0,0,0,.6);display:block}
+.viewer nav{display:flex;justify-content:center;align-items:center;gap:12px;flex-wrap:wrap}
+.icon-btn{width:44px;height:44px;border-radius:50%;border:1px solid #4a3c2e;background:transparent;color:var(--fg);font-size:20px;cursor:pointer;display:grid;place-items:center}
+.icon-btn:hover{border-color:var(--accent);color:var(--accent)}
+</style>
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a href="#top" aria-label="AMZO Production"><img src="logo.png" alt="AMZO Production" width="341" height="126"></a>
+    <ul>
+      <li><a href="#about">من نحن</a></li>
+      <li><a href="#services">خدماتنا</a></li>
+      <li><a href="#gear">التجهيزات</a></li>
+      <li><a href="#works">أعمالنا</a></li>
+      <li><a href="#clients">عملاؤنا</a></li>
+      <li><a href="#contact">تواصل معنا</a></li>
+    </ul>
+    <button class="btn sm" type="button" data-open-viewer>تصفّح البروفايل</button>
+  </div>
+</header>
+
+<main id="top">
+  <div class="hero">
+    <div class="hero-img" role="img" aria-label="فريق تصوير في موقع الإنتاج"></div>
+    <div class="wrap">
+      <div class="hero-copy">
+        <span class="eyebrow">AMZO Media Production · Riyadh</span>
+        <h1>لكل فكرة قصة<br>تستحق أن <em>تُروى</em></h1>
+        <p>إنتاج إعلامي وصناعة محتوى بصري للجهات الحكومية والمؤسسات غير الربحية والشركات الخاصة والفعاليات الكبرى.</p>
+        <div class="actions">
+          <a class="btn" href="#works">شاهد أعمالنا</a>
+          <button class="btn ghost" type="button" data-open-viewer>تصفّح البروفايل كاملاً</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section id="about">
+    <div class="wrap">
+      <div class="about">
+        <div>
+          <div class="sec-head"><h2>من نحن</h2></div>
+          <p class="lead"><b>AMZO Media Production</b> مؤسسة رائدة في مجال الإنتاج الإعلامي وصناعة المحتوى البصري. نؤمن بأن لكل فكرة قصة تستحق أن تُروى بأسلوب إبداعي يترك أثرًا دائمًا، ونحوّل الرؤى إلى تجارب بصرية ملهمة تعكس هوية عملائنا وتعزز ارتباطهم بجمهورهم، من خلال حلول إعلامية متكاملة توظف أحدث التقنيات وأعلى معايير الجودة.</p>
+        </div>
+        <figure aria-label="مصور يعمل بكاميرا سينمائية"></figure>
+      </div>
+
+      <div class="sec-head" style="margin-top:72px;margin-bottom:0"><h2>قيمنا</h2></div>
+      <div class="values" style="margin-top:28px">
+        <div><h3>الإبداع</h3><p>نؤمن أن لكل مشروع زاوية مختلفة، ولكل قصة أسلوبًا خاصًا في عرضها.</p></div>
+        <div><h3>الاحترافية</h3><p>نلتزم بأعلى معايير الجودة في التخطيط والتنفيذ والتسليم.</p></div>
+        <div><h3>الالتزام</h3><p>نحترم وقت العميل، ونحرص على تسليم الأعمال وفق المواعيد المتفق عليها.</p></div>
+        <div><h3>الجودة</h3><p>نهتم بأدق التفاصيل من الفكرة الأولى حتى النسخة النهائية.</p></div>
+        <div><h3>الشراكة</h3><p>نتعامل مع عملائنا كشركاء نجاح، ونعمل على تحقيق أهدافهم الإعلامية والتسويقية.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="services" class="band">
+    <div class="wrap">
+      <div class="sec-head"><h2>خدماتنا</h2><p>من الفكرة والسيناريو إلى التصوير والمونتاج والتسليم النهائي.</p></div>
+      <div class="services">
+        <article><span class="k">Promo Films</span><h3>إنتاج الفيديوهات الترويجية</h3><p>تصميم وتنفيذ أفلام تعريفية وتسويقية تعكس هوية الجهة ورسالتها.</p></article>
+        <article><span class="k">Event Coverage</span><h3>التغطية الإعلامية للفعاليات</h3><p>توثيق المؤتمرات والمعارض واللقاءات والمناسبات الرسمية والفعاليات الكبرى.</p></article>
+        <article><span class="k">Photography</span><h3>التصوير الفوتوغرافي الاحترافي</h3><p>تصوير الأشخاص والفعاليات والمنتجات والمشاريع والهوية المؤسسية.</p></article>
+        <article><span class="k">Documentary</span><h3>إنتاج الأفلام الوثائقية</h3><p>صياغة قصص واقعية بأسلوب بصري عميق ومؤثر.</p></article>
+        <article><span class="k">Post-production</span><h3>المونتاج وما بعد الإنتاج</h3><p>تحرير الفيديو، وتصحيح الألوان، ومعالجة الصوت، وإخراج العمل بصورته النهائية.</p></article>
+        <article><span class="k">Digital Content</span><h3>صناعة المحتوى الرقمي</h3><p>إنتاج محتوى مناسب لمنصات التواصل الاجتماعي والحملات الرقمية.</p></article>
+        <article><span class="k">Direction</span><h3>الإخراج وإدارة الإنتاج</h3><p>إدارة مراحل العمل من الفكرة والسيناريو والستوري بورد إلى التصوير والتنفيذ.</p></article>
+        <article class="cta"><h3>لديك مشروع؟</h3><a class="btn sm" href="#contact">تواصل معنا</a></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="expertise">
+    <div class="wrap">
+      <div class="exp">
+        <figure aria-label="كرسي المخرج في استوديو"></figure>
+        <div>
+          <div class="sec-head"><h2>الخبرة والتخصص</h2></div>
+          <ol>
+            <li><span class="tag">خبرة</span><p>تتمتع AMZO بخبرة عملية في تنفيذ مشاريع إعلامية متنوعة لجهات حكومية، ومؤسسات غير ربحية، وشركات خاصة، وفعاليات كبرى.</p></li>
+            <li><span class="tag">فهم</span><p>نمتلك فهمًا عميقًا لطبيعة العمل الإعلامي المؤسسي، وندرك أهمية تقديم المحتوى بما يتناسب مع هوية الجهة ورسالتها وجمهورها المستهدف.</p></li>
+            <li><span class="tag">تخصص</span><p>يتخصص فريقنا في صناعة الصورة المؤثرة، وإدارة مشاريع الإنتاج، وتوثيق اللحظات المهمة بأسلوب يجمع بين الحس الإبداعي والانضباط المهني.</p></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="gear" class="band">
+    <div class="wrap">
+      <div class="sec-head"><h2>التجهيزات</h2><p>نعتمد في أعمالنا على تجهيزات احترافية تضمن جودة عالية في التصوير والإنتاج.</p></div>
+      <div class="gear">
+        <article><h3>كاميرات تصوير احترافية</h3><p>لإنتاج فيديوهات وصور بجودة عالية تناسب مختلف أنواع المشاريع.</p>
+          <ul><li>RED KOMODO</li><li>Canon EOS R3</li><li>Canon EOS R6</li><li>Sony Alpha</li><li>Sony Camcorder</li><li>Insta360</li></ul></article>
+        <article><h3>عدسات سينمائية وفوتوغرافية</h3><p>لتغطية مختلف الزوايا والمشاهد، من اللقطات الواسعة إلى التفاصيل الدقيقة.</p>
+          <ul><li>35–85mm</li><li>16–35mm / 15–35mm</li><li>Canon RF 70–200mm</li><li>Sony FE 70–200mm</li><li>Venus Optics Peri-Probe</li></ul></article>
+        <article><h3>معدات إضاءة احترافية</h3><p>لضبط المشهد بصريًا وإبراز الهوية الجمالية للعمل.</p>
+          <ul><li>NANLUX Dyno 1200C</li><li>NANLUX Evoke 900C</li><li>Nanlite Forza 300B</li><li>Pavotube II 30X</li><li>Nanlite FL-11 Fresnel</li><li>Softbox 60×90</li></ul></article>
+        <article><h3>معدات صوت وتسجيل</h3><p>لضمان وضوح الصوت وجودته في المقابلات والتصوير الميداني.</p>
+          <ul><li>Zoom H6</li><li>Yamaha MG12XU</li><li>Sennheiser ew 112P</li><li>Eartec Intercom</li><li>Rode Windshield</li></ul></article>
+        <article><h3>معدات تثبيت وحركة</h3><p>مثل الجيمبل والترايبود والسلايدر لإنتاج لقطات ثابتة وانسيابية.</p>
+          <ul><li>DJI Ronin 2</li><li>DJI RS3 Pro</li><li>DJI RS 3 Mini</li><li>Manfrotto 502HD</li><li>Tilta Slider</li><li>Avenger Combo Stand</li></ul></article>
+        <article><h3>محطات مونتاج ومعالجة بصرية</h3><p>لإتمام مراحل ما بعد الإنتاج بجودة احترافية في المونتاج والألوان والصوت.</p>
+          <ul><li>Editing &amp; Color</li><li>3D / 2D</li><li>Drawing &amp; Animation</li></ul></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="works">
+    <div class="wrap">
+      <div class="sec-head"><h2>الأعمال السابقة</h2><p>اضغط على أي عمل لمشاهدة الفيديو.</p></div>
+      <div class="works" id="worksGrid"></div>
+    </div>
+  </section>
+
+  <section id="photos" class="band">
+    <div class="wrap">
+      <div class="sec-head"><h2>من عدستنا</h2><p>لقطات فوتوغرافية من الفعاليات والمؤتمرات التي غطّيناها.</p></div>
+      <a class="shots" href="https://drive.google.com/drive/folders/1SHYQgj7x71IbXdo_I60RgyWLHjZGFrB4" target="_blank" rel="noopener">
+        <img src="photos.jpg" alt="مجموعة صور من فعاليات صوّرتها AMZO" loading="lazy" width="1660" height="690">
+        <span class="btn">لرؤية المزيد من الصور ↗</span>
+      </a>
+    </div>
+  </section>
+
+  <section id="clients">
+    <div class="wrap">
+      <div class="sec-head"><h2>عملاؤنا</h2><p>جهات حكومية ومؤسسات وشركات وثقت بنا.</p></div>
+      <img class="logos" src="clients.jpg" alt="شعارات العملاء: وزارة الداخلية، مطارات الرياض، مطار الملك سلمان الدولي، سدايا، وزارة الدفاع، المراعي، الهيئة العامة للأوقاف، صندوق التنمية الصناعية السعودي، صندوق التنمية العقارية، جائزة الملك خالد، وزارة الصحة، وزارة الخارجية، مدينة الملك سعود الطبية" loading="lazy" width="1440" height="780">
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <div class="contact-bg" aria-hidden="true"></div>
+    <div class="wrap">
+      <span class="eyebrow">Let's make it</span>
+      <h2>شكرًا <em>لكم..</em><br>لنبدأ قصتكم القادمة</h2>
+      <div class="cards">
+        <div class="card"><div><small>البريد الإلكتروني</small><strong>info@amzo.sa</strong></div><button type="button" data-copy="info@amzo.sa">نسخ</button></div>
+        <div class="card"><div><small>الجوال</small><strong>0506702607</strong></div><button type="button" data-copy="0506702607">نسخ</button></div>
+        <div class="card"><div><small>انستقرام</small><strong>@amzo.sa</strong></div><a class="go" href="https://www.instagram.com/amzo.sa/" target="_blank" rel="noopener">زيارة</a></div>
+        <div class="card"><div><small>واتساب</small><strong>+966 50 670 2607</strong></div><a class="go" href="https://wa.me/966506702607" target="_blank" rel="noopener">مراسلة</a></div>
+      </div>
+      <p style="color:var(--muted);margin-top:18px">الرياض، المملكة العربية السعودية</p>
+    </div>
+  </section>
+</main>
+
+<footer><div class="wrap"><span>© AMZO Media Production</span><span dir="ltr">@amzo.sa</span></div></footer>
+
+<div class="viewer" id="viewer" hidden role="dialog" aria-modal="true" aria-label="بروفايل الشركة">
+  <header>
+    <span class="count" id="vCount">1 / 28</span>
+    <div style="display:flex;gap:10px;align-items:center">
+      <a class="btn sm" id="vWatch" href="#" target="_blank" rel="noopener" hidden>شاهد الفيديو ▶</a>
+      <button class="icon-btn" type="button" id="vClose" aria-label="إغلاق">✕</button>
+    </div>
+  </header>
+  <div class="stage"><img id="vImg" alt="صفحة من بروفايل الشركة"></div>
+  <nav>
+    <button class="icon-btn" type="button" id="vPrev" aria-label="السابق">→</button>
+    <button class="icon-btn" type="button" id="vNext" aria-label="التالي">←</button>
+  </nav>
+</div>
+
+<script>
+const D='https://drive.google.com/file/d/';
+const works=[
+  [10,'حفل تدشين طائرة طيران الرياض','1I06PPtA-4KOfCFX7TK030RZewlb_X8SK'],
+  [8,'مؤسسة الملك عبدالله بن عبدالعزيز لوالديه للإسكان التنموي','1UxxoZPvnXgoJH9c4UCqfWnusmUi5KjwM'],
+  [9,'صندوق التنمية الصناعية السعودي – SIDF','15WAPWBGW2m45FQd_sKVlFRSySQ5qvJbQ'],
+  [11,'الحفل السنوي لصندوق التنمية الصناعية السعودي','113TCugT_ff9qGNMRuOuAQ61onMyfqnQQ'],
+  [12,'هاوي','1B0YzlyGsVLJk1UGWtKYyKAJoyHJKaCj6'],
+  [13,'المراعي (حفل تخرج)','1mZqpZrn1AV9bSPde0zQLj8NjPuVDb0ao'],
+  [14,'المعهد التقني السعودي لخدمات الكهرباء – SESP','19qEjLrpoFWXllwQZK3dtMlvLnz3AlS4T'],
+  [15,'حفل جائزة الملك خالد ٢٠٢٥م','1M93-vA0JmFy8iIMWdnizBa1tZFY577pu'],
+  [16,'صندوق التنمية العقارية – Cityscape Global','1ZbK3fDyZ-4tSh7U2Fm020THH1F6kf7JC'],
+  [17,'صندوق التنمية العقارية – Cityscape Global','1mT2lY8GZNUN5SSjqWY5xMLrUhZmVtwUk'],
+  [18,'شركة تطوير مطار الملك سلمان الدولي','1oJOrjpQKmxwG9goH7vbS0QqPA97OnVa7'],
+  [19,'الهيئة العامة للأوقاف','1K5D-7Kv4heZ6gPHrMD-YopbSc3WTP36z'],
+  [20,'شركة تقنية الطائرات المتطورة – معرض الدفاع العالمي','1ggBHCAADZ-2iujUzWRN0_4Ea8BMM3iVH'],
+  [21,'جامعة الملك عبدالله للعلوم والتقنية – KAUST','1Wy3LrR7b_y9OYA6sRtxmUT8hSLKBvrde'],
+  [22,'مؤسسة الملك خالد','1BCxjElpm_ekQ_ye-8IB7F2i1_eUwKtLs'],
+  [23,'صندوق التنمية الصناعية السعودي','1tp_IfNnhRcv6QK0v_e7cdTGj32pGHLq6'],
+  [24,'الهيئة السعودية للبيانات والذكاء الاصطناعي','16nRP_8L_YHEuKCTC07VDD7FTeZAGaScF'],
+  [25,'مؤسسة الأميرة العنود','1XYQeiQJq0ajBejBRhswdTJ2JZQq5gKyC']
+];
+const PHOTOS='https://drive.google.com/drive/folders/1SHYQgj7x71IbXdo_I60RgyWLHjZGFrB4';
+const pad=n=>String(n).padStart(2,'0');
+const grid=document.getElementById('worksGrid');
+grid.innerHTML=works.map(([p,t,id],i)=>{
+  const f=i===0;
+  return `<a class="work${f?' feature':''}" href="${D}${id}/view" target="_blank" rel="noopener">
+    <div class="thumb"><img src="w/w-${pad(p)}.jpg" alt="${t}" loading="${i<4?'eager':'lazy'}"><span class="no">${pad(i+1)}</span></div>
+    <div>${f?'<span class="eyebrow" style="margin-bottom:6px">Featured</span>':''}<h3>${t}</h3><span class="watch">شاهد الفيديو ←</span></div>
+  </a>`}).join('');
+
+/* slide viewer: all 28 profile pages */
+const slides=[...Array(28).keys()].map(i=>i+1);
+const links=Object.fromEntries(works.map(([p,,id])=>[p,D+id+'/view']));links[26]=PHOTOS;
+const v=document.getElementById('viewer'),img=document.getElementById('vImg'),cnt=document.getElementById('vCount'),watch=document.getElementById('vWatch');
+let idx=0,lastFocus=null;
+function show(i){
+  idx=(i+slides.length)%slides.length;const n=slides[idx];
+  img.src=`p/s-${pad(n)}.jpg`;cnt.textContent=`${idx+1} / ${slides.length}`;
+  if(links[n]){watch.href=links[n];watch.textContent=n===26?'شاهد الصور ↗':'شاهد الفيديو ▶';watch.hidden=false}else watch.hidden=true;
+  const nx=new Image();nx.src=`p/s-${pad(slides[(idx+1)%slides.length])}.jpg`;
+}
+function openV(){lastFocus=document.activeElement;v.hidden=false;document.body.style.overflow='hidden';show(idx);document.getElementById('vClose').focus()}
+function closeV(){v.hidden=true;document.body.style.overflow='';lastFocus&&lastFocus.focus()}
+document.querySelectorAll('[data-open-viewer]').forEach(b=>b.addEventListener('click',openV));
+document.getElementById('vClose').onclick=closeV;
+document.getElementById('vNext').onclick=()=>show(idx+1);
+document.getElementById('vPrev').onclick=()=>show(idx-1);
+document.addEventListener('keydown',e=>{
+  if(v.hidden)return;
+  if(e.key==='Escape')closeV();
+  else if(e.key==='ArrowLeft')show(idx+1);
+  else if(e.key==='ArrowRight')show(idx-1);
+});
+let sx=null;
+v.addEventListener('touchstart',e=>{sx=e.touches[0].clientX},{passive:true});
+v.addEventListener('touchend',e=>{if(sx==null)return;const dx=e.changedTouches[0].clientX-sx;if(Math.abs(dx)>50)show(idx+(dx>0?1:-1));sx=null});
+if(location.hash==='#profile')openV();
+
+/* copy buttons */
+document.querySelectorAll('[data-copy]').forEach(b=>b.addEventListener('click',()=>{
+  const t=b.dataset.copy,done=()=>{const o=b.textContent;b.textContent='تم النسخ';setTimeout(()=>b.textContent=o,1600)};
+  const sel=()=>{const s=b.parentElement.querySelector('strong');const r=document.createRange();r.selectNodeContents(s);const g=getSelection();g.removeAllRanges();g.addRange(r)};
+  try{navigator.clipboard.writeText(t).then(done,sel)}catch(e){sel()}
+}));
+</script>
+
+</body>
+</html>
