@@ -11,16 +11,20 @@
 <meta name="theme-color" content="#070605">
 <link rel="icon" href="favicon.png">
 <title>AMZO Production</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alexandria:wght@300;500;700&family=IBM+Plex+Sans+Arabic:wght@300;400;500&display=swap">
+<link rel="preload" href="fonts/noor-regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/noor-bold.woff2" as="font" type="font/woff2" crossorigin>
 <style>
+/* Brand typefaces (AMZO identity): Arabic = Noor (29LT), English = Alexandria */
+@font-face{font-family:"AMZO";src:url("fonts/alexandria.woff2") format("woff2");font-weight:100 900;font-display:swap;unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-200B, U+2010-206F, U+20AC, U+2122, U+2190-21FF, U+2212, U+2715, U+FEFF}
+@font-face{font-family:"AMZO";src:url("fonts/noor-light.woff2") format("woff2");font-weight:100 350;font-display:swap;unicode-range:U+0600-06FF, U+0750-077F, U+08A0-08FF, U+FB50-FDFF, U+FE70-FEFF, U+200C-200F}
+@font-face{font-family:"AMZO";src:url("fonts/noor-regular.woff2") format("woff2");font-weight:351 599;font-display:swap;unicode-range:U+0600-06FF, U+0750-077F, U+08A0-08FF, U+FB50-FDFF, U+FE70-FEFF, U+200C-200F}
+@font-face{font-family:"AMZO";src:url("fonts/noor-bold.woff2") format("woff2");font-weight:600 900;font-display:swap;unicode-range:U+0600-06FF, U+0750-077F, U+08A0-08FF, U+FB50-FDFF, U+FE70-FEFF, U+200C-200F}
 /* Layout: cinematic dark set, one amber key light from the top corner, RTL editorial sections */
 :root{
   --bg:#070605; --surface:#12100d; --line:#2a231b;
   --fg:#f3ece3; --muted:#a8998a; --accent:#e8832a; --accent-deep:#8a3f0c;
-  --display:"Alexandria","IBM Plex Sans Arabic",system-ui,sans-serif;
-  --body:"IBM Plex Sans Arabic","Segoe UI",Tahoma,system-ui,sans-serif;
+  --display:"AMZO","Segoe UI",Tahoma,system-ui,sans-serif;
+  --body:"AMZO","Segoe UI",Tahoma,system-ui,sans-serif;
   --gutter-l:max(16px, env(safe-area-inset-left, 0px));
   --gutter-r:max(16px, env(safe-area-inset-right, 0px));
   color-scheme:dark;
