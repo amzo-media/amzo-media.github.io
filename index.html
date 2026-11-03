@@ -150,7 +150,14 @@ section{padding-block:clamp(64px,9vw,110px)}
 .shots img{display:block;width:100%;height:auto;transition:transform .6s}
 .shots:hover img{transform:scale(1.02)}
 .shots .btn{position:absolute;bottom:16px;left:16px}
-.logos{display:block;width:100%;max-width:980px;height:auto;margin-inline:auto}
+.marquee{overflow:hidden;direction:ltr;padding-block:8px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent);mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent)}
+.marquee-track{display:flex;align-items:center;gap:clamp(40px,6vw,80px);width:max-content;list-style:none;margin:0;padding:0;animation:marquee 45s linear infinite}
+.marquee:hover .marquee-track{animation-play-state:paused}
+.marquee li{flex:none;width:clamp(110px,14vw,170px);height:clamp(48px,6vw,68px);display:flex;align-items:center;justify-content:center}
+.marquee img{max-width:100%;max-height:100%;width:auto;height:auto;opacity:.85;transition:opacity .2s}
+.marquee li:hover img{opacity:1}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(calc(-50% - clamp(40px,6vw,80px)/2))}}
+@media (prefers-reduced-motion:reduce){.marquee-track{animation:none;flex-wrap:wrap;justify-content:center;width:auto}.marquee-track li[aria-hidden]{display:none}.marquee{-webkit-mask-image:none;mask-image:none}}
 footer{border-top:1px solid var(--line);color:var(--muted);font-size:14px}
 footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;padding-block:24px}
 
@@ -292,7 +299,9 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
   <section id="clients">
     <div class="wrap">
       <div class="sec-head"><h2>عملاؤنا</h2><p>جهات حكومية ومؤسسات وشركات وثقت بنا.</p></div>
-      <img class="logos" src="clients.jpg" alt="شعارات العملاء: وزارة الداخلية، مطارات الرياض، مطار الملك سلمان الدولي، سدايا، وزارة الدفاع، المراعي، الهيئة العامة للأوقاف، صندوق التنمية الصناعية السعودي، صندوق التنمية العقارية، جائزة الملك خالد، وزارة الصحة، وزارة الخارجية، مدينة الملك سعود الطبية" loading="lazy" width="1440" height="780">
+      <div class="marquee" aria-label="شعارات عملائنا">
+        <ul class="marquee-track"><li><img src="clients/mod.png" alt="وزارة الدفاع" loading="lazy"></li><li><img src="clients/sdaia.png" alt="الهيئة السعودية للبيانات والذكاء الاصطناعي" loading="lazy"></li><li><img src="clients/ksia.png" alt="مطار الملك سلمان الدولي" loading="lazy"></li><li><img src="clients/riyadh-airports.png" alt="مطارات الرياض" loading="lazy"></li><li><img src="clients/moi.png" alt="وزارة الداخلية" loading="lazy"></li><li><img src="clients/redf.png" alt="صندوق التنمية العقارية" loading="lazy"></li><li><img src="clients/sidf.png" alt="صندوق التنمية الصناعية السعودي" loading="lazy"></li><li><img src="clients/awqaf.png" alt="الهيئة العامة للأوقاف" loading="lazy"></li><li><img src="clients/almarai.png" alt="المراعي" loading="lazy"></li><li><img src="clients/ksmc.png" alt="مدينة الملك سعود الطبية" loading="lazy"></li><li><img src="clients/mofa.png" alt="وزارة الخارجية" loading="lazy"></li><li><img src="clients/moh.png" alt="وزارة الصحة" loading="lazy"></li><li><img src="clients/kka.png" alt="جائزة الملك خالد" loading="lazy"></li><li aria-hidden="true"><img src="clients/mod.png" alt="" loading="lazy"></li><li aria-hidden="true"><img src="clients/sdaia.png" alt="" loading="lazy"></li><li aria-hidden="true"><img src="clients/ksia.png" alt="" loading="lazy"></li><li aria-hidden="true"><img src="clients/riyadh-airports.png" alt="" loading="lazy"></li><li aria-hidden="true"><img src="clients/moi.png" alt="" loading="lazy"></li><li aria-hidden="true"><img src="clients/redf.png" alt="" loading="lazy"></li><li aria-hidden="true"><img src="clients/sidf.png" alt="" loading="lazy"></li><li aria-hidden="true"><img src="clients/awqaf.png" alt="" loading="lazy"></li><li aria-hidden="true"><img src="clients/almarai.png" alt="" loading="lazy"></li><li aria-hidden="true"><img src="clients/ksmc.png" alt="" loading="lazy"></li><li aria-hidden="true"><img src="clients/mofa.png" alt="" loading="lazy"></li><li aria-hidden="true"><img src="clients/moh.png" alt="" loading="lazy"></li><li aria-hidden="true"><img src="clients/kka.png" alt="" loading="lazy"></li></ul>
+      </div>
     </div>
   </section>
 
