@@ -146,10 +146,6 @@ section{padding-block:clamp(64px,9vw,110px)}
 .card button,.card a.go{flex:none;font:inherit;font-size:13px;background:transparent;color:var(--accent);border:1px solid #4a3c2e;border-radius:999px;padding:5px 12px;cursor:pointer;text-decoration:none}
 @media (max-width:560px){.cards{grid-template-columns:1fr}}
 
-.shots{position:relative;display:block;border-radius:16px;overflow:hidden;border:1px solid var(--line)}
-.shots img{display:block;width:100%;height:auto;transition:transform .6s}
-.shots:hover img{transform:scale(1.02)}
-.shots .btn{position:absolute;bottom:16px;left:16px}
 .marquee{overflow:hidden;direction:ltr;padding-block:8px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent);mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent)}
 .marquee-track{display:flex;align-items:center;gap:clamp(40px,6vw,80px);width:max-content;list-style:none;margin:0;padding:0;animation:marquee 45s linear infinite}
 .marquee:hover .marquee-track{animation-play-state:paused}
@@ -158,6 +154,32 @@ section{padding-block:clamp(64px,9vw,110px)}
 .marquee li:hover img{opacity:1}
 @keyframes marquee{from{transform:translateX(0)}to{transform:translateX(calc(-50% - clamp(40px,6vw,80px)/2))}}
 @media (prefers-reduced-motion:reduce){.marquee-track{animation:none;flex-wrap:wrap;justify-content:center;width:auto}.marquee-track li[aria-hidden]{display:none}.marquee{-webkit-mask-image:none;mask-image:none}}
+.lens{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:clamp(150px,17vw,230px);grid-auto-flow:dense;gap:10px}
+.lens li{min-width:0}
+.lens .w2{grid-column:span 2}.lens .h2{grid-row:span 2}
+.lens button{position:relative;display:block;width:100%;height:100%;padding:0;border:0;border-radius:12px;overflow:hidden;background:#16120e;cursor:zoom-in}
+.lens img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .7s cubic-bezier(.2,.7,.2,1),filter .4s}
+.lens button::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(7,6,5,.55),transparent 45%);opacity:0;transition:opacity .35s}
+.lens button::before{content:"";position:absolute;inset:14px;z-index:1;pointer-events:none;opacity:0;transition:opacity .35s,inset .35s;
+  background:linear-gradient(var(--accent),var(--accent)) 0 0/18px 2px,linear-gradient(var(--accent),var(--accent)) 0 0/2px 18px,
+  linear-gradient(var(--accent),var(--accent)) 100% 0/18px 2px,linear-gradient(var(--accent),var(--accent)) 100% 0/2px 18px,
+  linear-gradient(var(--accent),var(--accent)) 0 100%/18px 2px,linear-gradient(var(--accent),var(--accent)) 0 100%/2px 18px,
+  linear-gradient(var(--accent),var(--accent)) 100% 100%/18px 2px,linear-gradient(var(--accent),var(--accent)) 100% 100%/2px 18px;background-repeat:no-repeat}
+.lens .num{position:absolute;bottom:12px;left:14px;z-index:2;font-family:var(--display);font-size:12px;letter-spacing:.08em;color:#f3ece3;direction:ltr;font-variant-numeric:tabular-nums;opacity:0;transform:translateY(6px);transition:opacity .35s,transform .35s}
+.lens button:hover img,.lens button:focus-visible img{transform:scale(1.05)}
+.lens button:hover::after,.lens button:focus-visible::after,.lens button:hover::before,.lens button:focus-visible::before{opacity:1}
+.lens button:hover::before,.lens button:focus-visible::before{inset:10px}
+.lens button:hover .num,.lens button:focus-visible .num{opacity:1;transform:none}
+.lens-more{display:flex;justify-content:center;margin-top:28px}
+@media (max-width:760px){.lens{grid-template-columns:repeat(2,1fr);grid-auto-rows:clamp(120px,36vw,190px);gap:8px}.lens .num{display:none}}
+.lb{position:fixed;inset:0;z-index:60;background:rgba(4,3,2,.97);display:grid;place-items:center;padding:calc(env(safe-area-inset-top,0px) + 64px) max(16px,env(safe-area-inset-right,0px)) calc(env(safe-area-inset-bottom,0px) + 64px) max(16px,env(safe-area-inset-left,0px))}
+.lb-stage{margin:0;max-width:min(1400px,100%);max-height:100%;display:flex}
+.lb-stage img{max-width:100%;max-height:calc(100vh - 140px);object-fit:contain;border-radius:8px;display:block;box-shadow:0 30px 80px rgba(0,0,0,.6)}
+.lb-count{position:absolute;top:calc(env(safe-area-inset-top,0px) + 22px);left:max(20px,env(safe-area-inset-left,0px));font-family:var(--display);color:var(--muted);direction:ltr;font-variant-numeric:tabular-nums}
+.lb-close{position:absolute;top:calc(env(safe-area-inset-top,0px) + 12px);right:max(16px,env(safe-area-inset-right,0px))}
+.lb-prev,.lb-next{position:absolute;bottom:calc(env(safe-area-inset-bottom,0px) + 12px)}
+.lb-prev{right:calc(50% + 8px)}.lb-next{left:calc(50% + 8px)}
+@media (min-width:900px){.lb-prev,.lb-next{bottom:auto;top:50%;transform:translateY(-50%)}.lb-prev{right:max(20px,env(safe-area-inset-right,0px))}.lb-next{left:max(20px,env(safe-area-inset-left,0px))}}
 footer{border-top:1px solid var(--line);color:var(--muted);font-size:14px}
 footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;padding-block:24px}
 
@@ -289,12 +311,32 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
   <section id="photos" class="band">
     <div class="wrap">
       <div class="sec-head"><h2>من عدستنا</h2><p>لقطات فوتوغرافية من الفعاليات والمؤتمرات التي غطّيناها.</p></div>
-      <a class="shots" href="https://drive.google.com/drive/folders/1SHYQgj7x71IbXdo_I60RgyWLHjZGFrB4" target="_blank" rel="noopener">
-        <img src="photos.jpg" alt="مجموعة صور من فعاليات صوّرتها AMZO" loading="lazy" width="1660" height="690">
-        <span class="btn">لرؤية المزيد من الصور ↗</span>
-      </a>
+      <ul class="lens">
+        <li class="w2 h2"><button type="button" data-i="0" aria-label="عرض الصورة: قاعة مؤتمر كبرى ممتلئة بالحضور"><img src="gallery/g09-sm.jpg" alt="قاعة مؤتمر كبرى ممتلئة بالحضور" loading="lazy" decoding="async"><span class="num">01 / 12</span></button></li>
+        <li class=""><button type="button" data-i="1" aria-label="عرض الصورة: جلسة حوارية على مسرح The Stage"><img src="gallery/g01-sm.jpg" alt="جلسة حوارية على مسرح The Stage" loading="lazy" decoding="async"><span class="num">02 / 12</span></button></li>
+        <li class="h2"><button type="button" data-i="2" aria-label="عرض الصورة: متحدث على منصة منتدى الامتثال البيئي"><img src="gallery/g08-sm.jpg" alt="متحدث على منصة منتدى الامتثال البيئي" loading="lazy" decoding="async"><span class="num">03 / 12</span></button></li>
+        <li class=""><button type="button" data-i="3" aria-label="عرض الصورة: ضيوف في الصف الأول خلال حفل رسمي"><img src="gallery/g02-sm.jpg" alt="ضيوف في الصف الأول خلال حفل رسمي" loading="lazy" decoding="async"><span class="num">04 / 12</span></button></li>
+        <li class="w2"><button type="button" data-i="4" aria-label="عرض الصورة: زوار يلعبون تنس الطاولة في فعالية خارجية"><img src="gallery/g05-sm.jpg" alt="زوار يلعبون تنس الطاولة في فعالية خارجية" loading="lazy" decoding="async"><span class="num">05 / 12</span></button></li>
+        <li class=""><button type="button" data-i="5" aria-label="عرض الصورة: عرض تقديمي أمام الحضور في قاعة اجتماعات"><img src="gallery/g03-sm.jpg" alt="عرض تقديمي أمام الحضور في قاعة اجتماعات" loading="lazy" decoding="async"><span class="num">06 / 12</span></button></li>
+        <li class="h2"><button type="button" data-i="6" aria-label="عرض الصورة: زوار يتفاعلون مع شاشة عرض في معرض"><img src="gallery/g00-sm.jpg" alt="زوار يتفاعلون مع شاشة عرض في معرض" loading="lazy" decoding="async"><span class="num">07 / 12</span></button></li>
+        <li class=""><button type="button" data-i="7" aria-label="عرض الصورة: اجتماع دولي بحضور وفود الدول"><img src="gallery/g04-sm.jpg" alt="اجتماع دولي بحضور وفود الدول" loading="lazy" decoding="async"><span class="num">08 / 12</span></button></li>
+        <li class=""><button type="button" data-i="8" aria-label="عرض الصورة: جلسة نقاش عن القطاع غير الربحي"><img src="gallery/g06-sm.jpg" alt="جلسة نقاش عن القطاع غير الربحي" loading="lazy" decoding="async"><span class="num">09 / 12</span></button></li>
+        <li class=""><button type="button" data-i="9" aria-label="عرض الصورة: ضيوف يتأملون مجسماً معمارياً في معرض"><img src="gallery/g07-sm.jpg" alt="ضيوف يتأملون مجسماً معمارياً في معرض" loading="lazy" decoding="async"><span class="num">10 / 12</span></button></li>
+        <li class="w2"><button type="button" data-i="10" aria-label="عرض الصورة: تتويج في حفل ميداني"><img src="gallery/g10-sm.jpg" alt="تتويج في حفل ميداني" loading="lazy" decoding="async"><span class="num">11 / 12</span></button></li>
+        <li class="w2"><button type="button" data-i="11" aria-label="عرض الصورة: لقطة جوية لموقع فعالية مفتوح"><img src="gallery/g11-sm.jpg" alt="لقطة جوية لموقع فعالية مفتوح" loading="lazy" decoding="async"><span class="num">12 / 12</span></button></li>
+      </ul>
+      <div class="lens-more"><a class="btn ghost" href="https://drive.google.com/drive/folders/1SHYQgj7x71IbXdo_I60RgyWLHjZGFrB4" target="_blank" rel="noopener">لرؤية المزيد من الصور ↗</a></div>
     </div>
   </section>
+
+  <div class="lb" id="lb" hidden role="dialog" aria-modal="true" aria-label="معرض الصور">
+    <span class="lb-count" id="lbCount"></span>
+    <button class="icon-btn lb-close" type="button" id="lbClose" aria-label="إغلاق">✕</button>
+    <figure class="lb-stage"><img id="lbImg" alt=""></figure>
+    <button class="icon-btn lb-prev" type="button" id="lbPrev" aria-label="السابق">→</button>
+    <button class="icon-btn lb-next" type="button" id="lbNext" aria-label="التالي">←</button>
+  </div>
+  <script>window.LENS={src:["gallery/g09.jpg","gallery/g01.jpg","gallery/g08.jpg","gallery/g02.jpg","gallery/g05.jpg","gallery/g03.jpg","gallery/g00.jpg","gallery/g04.jpg","gallery/g06.jpg","gallery/g07.jpg","gallery/g10.jpg","gallery/g11.jpg"],alt:["قاعة مؤتمر كبرى ممتلئة بالحضور","جلسة حوارية على مسرح The Stage","متحدث على منصة منتدى الامتثال البيئي","ضيوف في الصف الأول خلال حفل رسمي","زوار يلعبون تنس الطاولة في فعالية خارجية","عرض تقديمي أمام الحضور في قاعة اجتماعات","زوار يتفاعلون مع شاشة عرض في معرض","اجتماع دولي بحضور وفود الدول","جلسة نقاش عن القطاع غير الربحي","ضيوف يتأملون مجسماً معمارياً في معرض","تتويج في حفل ميداني","لقطة جوية لموقع فعالية مفتوح"]};</script>
 
   <section id="clients">
     <div class="wrap">
@@ -404,6 +446,17 @@ document.querySelectorAll('[data-copy]').forEach(b=>b.addEventListener('click',(
   const sel=()=>{const s=b.parentElement.querySelector('strong');const r=document.createRange();r.selectNodeContents(s);const g=getSelection();g.removeAllRanges();g.addRange(r)};
   try{navigator.clipboard.writeText(t).then(done,sel)}catch(e){sel()}
 }));
+
+/* lens gallery lightbox */
+(()=>{const L=window.LENS;if(!L)return;const lb=document.getElementById('lb'),im=document.getElementById('lbImg'),ct=document.getElementById('lbCount');let i=0,last=null;
+const show=k=>{i=(k+L.src.length)%L.src.length;im.src=L.src[i];im.alt=L.alt[i];ct.textContent=`${String(i+1).padStart(2,'0')} / ${String(L.src.length).padStart(2,'0')}`;const n=new Image();n.src=L.src[(i+1)%L.src.length]};
+const open=k=>{last=document.activeElement;lb.hidden=false;document.body.style.overflow='hidden';show(k);document.getElementById('lbClose').focus()};
+const close=()=>{lb.hidden=true;document.body.style.overflow='';last&&last.focus()};
+document.querySelectorAll('.lens button').forEach(b=>b.addEventListener('click',()=>open(+b.dataset.i)));
+document.getElementById('lbClose').onclick=close;document.getElementById('lbNext').onclick=()=>show(i+1);document.getElementById('lbPrev').onclick=()=>show(i-1);
+lb.addEventListener('click',e=>{if(e.target===lb)close()});
+document.addEventListener('keydown',e=>{if(lb.hidden)return;if(e.key==='Escape')close();else if(e.key==='ArrowLeft')show(i+1);else if(e.key==='ArrowRight')show(i-1)});
+let sx=null;lb.addEventListener('touchstart',e=>{sx=e.touches[0].clientX},{passive:true});lb.addEventListener('touchend',e=>{if(sx==null)return;const d=e.changedTouches[0].clientX-sx;if(Math.abs(d)>50)show(i+(d>0?1:-1));sx=null});})();
 </script>
 
 </body>
