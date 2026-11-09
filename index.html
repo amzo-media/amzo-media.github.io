@@ -201,8 +201,12 @@ section{padding-block:clamp(64px,9vw,110px)}
 .gear-more[open] summary{margin-bottom:26px}
 .gear-more[open] summary::after{content:" ×";}
 @media (max-width:760px){
-  .services{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:12px;background:none;border:0;border-radius:0;padding-bottom:6px;margin-inline:calc(-1 * max(16px, env(safe-area-inset-right, 0px)));padding-inline:max(16px, env(safe-area-inset-right, 0px))}
-  .services article{flex:0 0 78%;scroll-snap-align:start;border:1px solid var(--line);border-radius:14px}
+  .services{grid-template-columns:1fr 1fr;border-radius:14px}
+  .services article{padding:18px 14px}
+  .services .k{display:none}
+  .services h3{font-size:15.5px;margin:0 0 6px;line-height:1.45}
+  .services p{font-size:13px;line-height:1.65}
+  .services article.cta{gap:10px}
 }
 .wa-float{position:fixed;z-index:25;left:calc(max(16px, env(safe-area-inset-left, 0px)) + 4px);bottom:calc(env(safe-area-inset-bottom, 0px) + 18px);display:flex;align-items:center;gap:8px;background:#1fae5b;color:#fff;text-decoration:none;font-family:var(--display);font-size:14px;padding:11px 16px 11px 14px;border-radius:999px;box-shadow:0 10px 30px rgba(0,0,0,.45)}
 .wa-float:hover{background:#23c266}
@@ -226,12 +230,6 @@ section{padding-block:clamp(64px,9vw,110px)}
 .mo .rv.in{opacity:1;transform:none}
 .mo .lens li.rv{transform:translateY(26px) scale(.97)}
 .mo .lens li.rv.in{transform:none}
-/* hero entrance */
-.mo .hero-copy>*{animation:heroIn 1s cubic-bezier(.2,.7,.2,1) both}
-.mo .hero-copy>:nth-child(2){animation-delay:.12s}.mo .hero-copy>:nth-child(3){animation-delay:.26s}.mo .hero-copy>:nth-child(4){animation-delay:.4s}
-@keyframes heroIn{from{opacity:0;transform:translateY(22px)}}
-.mo .hero-img{animation:heroZoom 2.4s cubic-bezier(.2,.7,.2,1) both}
-@keyframes heroZoom{from{transform:scale(1.08)}}
 /* scroll-lit text */
 .mo .lit .w{color:#4b4138;transition:color .35s}
 .mo .lit .w.on{color:var(--fg)}
@@ -242,6 +240,33 @@ section{padding-block:clamp(64px,9vw,110px)}
 .finale p{font-family:var(--display);font-weight:700;font-size:clamp(40px,8.5vw,112px);line-height:1.25;letter-spacing:-.01em;text-wrap:balance;margin-inline:auto;max-width:14ch}
 .finale small{display:block;margin-top:22px;font-family:var(--display);color:var(--muted);letter-spacing:.2em;font-size:12px;direction:ltr}
 @media (prefers-reduced-motion:reduce){.mo .rv{opacity:1;transform:none}.rec i{animation:none}.lit .w{color:inherit}}
+
+/* hero intro */
+.hero h1 .ln{display:block;overflow:hidden;padding-bottom:.08em;margin-bottom:-.08em}
+.hero h1 .ln>span{display:block}
+.hero-vf{position:absolute;z-index:2;pointer-events:none;inset:clamp(14px,2.2vw,28px);
+  background:linear-gradient(#f3ece3,#f3ece3) 0 0/22px 1.5px,linear-gradient(#f3ece3,#f3ece3) 0 0/1.5px 22px,linear-gradient(#f3ece3,#f3ece3) 100% 0/22px 1.5px,linear-gradient(#f3ece3,#f3ece3) 100% 0/1.5px 22px,
+  linear-gradient(#f3ece3,#f3ece3) 0 100%/22px 1.5px,linear-gradient(#f3ece3,#f3ece3) 0 100%/1.5px 22px,linear-gradient(#f3ece3,#f3ece3) 100% 100%/22px 1.5px,linear-gradient(#f3ece3,#f3ece3) 100% 100%/1.5px 22px;background-repeat:no-repeat;opacity:.55}
+.hero-rec{position:absolute;bottom:12px;left:16px;display:flex;align-items:center;gap:8px;font-family:var(--display);font-size:12px;letter-spacing:.14em;color:#f3ece3;direction:ltr;font-variant-numeric:tabular-nums}
+.hero-rec i{width:9px;height:9px;border-radius:50%;background:#e5352b;animation:recblink 1.6s steps(1) infinite}
+.hero-rec b{font-weight:400;opacity:.8}
+.bars{position:absolute;inset:0;z-index:3;pointer-events:none;display:none}
+.mo .bars{display:block}
+.bars::before,.bars::after{content:"";position:absolute;left:0;right:0;height:51%;background:#000;animation:barsOpen 1.3s cubic-bezier(.76,0,.24,1) .15s both}
+.bars::before{top:0;transform-origin:top}.bars::after{bottom:0;transform-origin:bottom}
+@keyframes barsOpen{0%{transform:scaleY(1)}55%{transform:scaleY(.22)}100%{transform:scaleY(0)}}
+.mo .hero-img{animation:heroCam 2.6s cubic-bezier(.2,.7,.2,1) .2s both}
+@keyframes heroCam{from{transform:scale(1.18);filter:brightness(.25) blur(6px)}60%{filter:brightness(1) blur(0)}to{transform:scale(1)}}
+.mo .hero h1 .ln>span{animation:lineUp 1s cubic-bezier(.2,.8,.2,1) both}
+.mo .hero h1 .ln:nth-child(1)>span{animation-delay:.85s}.mo .hero h1 .ln:nth-child(2)>span{animation-delay:1s}
+@keyframes lineUp{from{transform:translateY(105%)}}
+.mo .hero-copy>*{animation:heroIn .9s cubic-bezier(.2,.7,.2,1) both}
+.mo .hero-copy>h1{animation:none}
+.mo .hero-copy>:nth-child(1){animation-delay:.7s}.mo .hero-copy>:nth-child(3){animation-delay:1.25s}.mo .hero-copy>:nth-child(4){animation-delay:1.4s}
+.mo .hero-vf{animation:vfIn 1s ease .9s both}
+@keyframes vfIn{from{opacity:0;inset:clamp(40px,6vw,80px)}}
+@media (max-width:560px){.hero-vf{inset:10px}.hero-rec{font-size:10.5px;bottom:8px;left:12px}}
+@media (prefers-reduced-motion:reduce){.bars{display:none!important}}
 footer{border-top:1px solid var(--line);color:var(--muted);font-size:14px}
 footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;padding-block:24px}
 
@@ -258,6 +283,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
 <style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}</style>
 </head>
 <body>
+<script>if(!matchMedia('(prefers-reduced-motion: reduce)').matches&&'IntersectionObserver' in window)document.documentElement.classList.add('mo')</script>
 
 <header class="nav">
   <div class="wrap">
@@ -281,10 +307,12 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
 <main id="top">
   <div class="hero">
     <div class="hero-img" role="img" aria-label="فريق تصوير في موقع الإنتاج"></div>
+    <div class="hero-vf" aria-hidden="true"><span class="hero-rec"><i></i>REC <b id="tc">00:00:00:00</b></span></div>
+    <div class="bars" aria-hidden="true"></div>
     <div class="wrap">
       <div class="hero-copy">
         <span class="eyebrow">AMZO Media Production · Riyadh</span>
-        <h1>لكل فكرة قصة<br>تستحق أن <em>تُروى</em></h1>
+        <h1><span class="ln"><span>لكل فكرة قصة</span></span><span class="ln"><span>تستحق أن <em>تُروى</em></span></span></h1>
         <p>إنتاج إعلامي وصناعة محتوى بصري للجهات الحكومية والمؤسسات غير الربحية والشركات الخاصة والفعاليات الكبرى.</p>
         <div class="actions">
           <a class="btn" href="#works">شاهد أعمالنا</a>
@@ -336,7 +364,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
   <section id="services">
     <div class="wrap">
       <div class="sec-head"><h2>خدماتنا</h2><p>من الفكرة والسيناريو إلى التصوير والمونتاج والتسليم النهائي.</p></div>
-      <div class="services" tabindex="0" aria-label="الخدمات">
+      <div class="services">
         <article><span class="k">Promo Films</span><h3>إنتاج الفيديوهات الترويجية</h3><p>تصميم وتنفيذ أفلام تعريفية وتسويقية تعكس هوية الجهة ورسالتها.</p></article>
         <article><span class="k">Event Coverage</span><h3>التغطية الإعلامية للفعاليات</h3><p>توثيق المؤتمرات والمعارض واللقاءات والمناسبات الرسمية والفعاليات الكبرى.</p></article>
         <article><span class="k">Photography</span><h3>التصوير الفوتوغرافي الاحترافي</h3><p>تصوير الأشخاص والفعاليات والمنتجات والمشاريع والهوية المؤسسية.</p></article>
@@ -571,6 +599,11 @@ const paint=()=>{tick=false;const vh=innerHeight,end=scrollY+vh>=document.docume
 addEventListener('scroll',()=>{if(!tick){tick=true;requestAnimationFrame(paint)}},{passive:true});
 addEventListener('resize',paint);paint();
 })();
+
+/* hero timecode */
+(()=>{const tc=document.getElementById('tc');if(!tc)return;const t0=performance.now();const p=n=>String(n).padStart(2,'0');
+const f=()=>{const ms=performance.now()-t0,fr=Math.floor(ms/1000*25)%25,sec=Math.floor(ms/1000);tc.textContent=`${p(Math.floor(sec/3600))}:${p(Math.floor(sec/60)%60)}:${p(sec%60)}:${p(fr)}`;requestAnimationFrame(f)};
+if(!matchMedia('(prefers-reduced-motion: reduce)').matches)requestAnimationFrame(f);})();
 </script>
 
 </body>
